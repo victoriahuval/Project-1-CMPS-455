@@ -23,8 +23,8 @@ public class DiningPhilosopher {
     // meal counterrr
     private static int totalMeals = 0;
 
-    private static int numPhilosophers;
-    private static int numMeals;
+    private static int numPhilosophers; //P
+    private static int numMeals; //M 
 
     //---------------------------------------
     // Philosopher Thread
