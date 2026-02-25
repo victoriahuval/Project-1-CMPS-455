@@ -26,6 +26,8 @@ public class DiningPhilosopher {
     private static int numPhilosophers;
     private static int numMeals;
 
+
+
     //---------------------------------------
     // Philosopher Thread
     //---------------------------------------
@@ -42,8 +44,8 @@ public class DiningPhilosopher {
             super("Philosopher " + id);
             this.id = id;
             int base = numMeals / numPhilosophers;
-            int remainer = numMeals % numPhilosophers;
-            this.mealsRemaining = base + (id <= remainer ? 1 : 0);
+            int remainder = numMeals % numPhilosophers;
+            this.mealsRemaining = base + (id <= remainder ? 1 : 0);
         }
         //returns 3 to 6 cycles of eating
         private int randCycles(){
@@ -135,7 +137,7 @@ public class DiningPhilosopher {
                     }
 
                     //now we have to do the same thing for the second chopstick
-
+                    //insert yield for report
                     boolean isSecond = chops[secondChop].tryAcquire();
                     if(isSecond){
                         mutexLog("---", "Philosopher " + id + "'s " + secondName + " chopstick IS available.");
@@ -189,7 +191,9 @@ public class DiningPhilosopher {
         }
     }
 }
-public static void main(String args[]) throws InterruptedException{
+    public static void run() throws InterruptedException{
+
+
     Scanner scanner = new Scanner(System.in);
     System.out.println("How many philosophers should be created? (integer from 1 - 10000): ");
     numPhilosophers = scanner.nextInt();
@@ -234,6 +238,11 @@ public static void main(String args[]) throws InterruptedException{
     for (int i = 0; i < numPhilosophers; i++) {
         philosophers[i].join();
     }
+    System.out.println("$$$$$$ All philosophers are now leaving the table together. $$$$$\n" +
+            "$$$$$ World Peace! $$$$$\n" +
+            "No threads ready or runnable, and no pending interrupts.\n" +
+            "Assuming the program completed.\n" +
+            "Machine halting!");
     long end_time = System.nanoTime();
     System.out.printf("Runtime in milliseconds = ");
     System.out.println((end_time - starttime) / 1000000.0);
