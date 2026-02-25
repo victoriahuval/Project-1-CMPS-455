@@ -19,7 +19,7 @@ public class Main {
             DiningPhilosopher.run();
         }
         else if (t == 2 ){
-            ReaderCoordinator.main();
+            ReaderCoordinator.run();
         }
         else{
             System.out.println("Error. Invalid task. Try again please.");
