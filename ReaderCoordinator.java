@@ -126,7 +126,7 @@ public class ReaderCoordinator {
 
     }
 
-     public static void main () throws InterruptedException{
+     public static void run() throws InterruptedException{
         System.out.println("Welcome to the Readers-Writers' problem!");
         // function throws except to handle waiting, sleeping, or occupied threads
         Scanner scanner = new Scanner(System.in);
